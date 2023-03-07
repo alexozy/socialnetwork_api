@@ -1,0 +1,24 @@
+{
+  "name": "socialnetwork_api",
+  "version": "1.0.0",
+  "description": "Application used to allow users to share thoughts, reactions and generate a friend list.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexozy/socialnetwork_api.git"
+  },
+  "author": "Ozanne Alexander",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexozy/socialnetwork_api/issues"
+  },
+  "homepage": "https://github.com/alexozy/socialnetwork_api#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.1"
+  }
+}
