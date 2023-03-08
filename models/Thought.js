@@ -1,21 +1,7 @@
 const { Schema, model, Types} = require('mongoose');
 const reactionSchema = require('./Reaction');
 
-const ThoughtSchema = new Schema (
-    {
-        // thoughtText
-        // createdAt:
-        // username
-        // reactions
-
-
-
-
-    // Create a virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
-})
-
 // REACTION GOES HERE 
-
 const ReactionSchema = new Schema({
    
     // objectID data type for Mongoose
@@ -39,5 +25,33 @@ const ReactionSchema = new Schema({
     // createdAt
     
 })
+
+const ThoughtSchema = new Schema (
+    {
+        // thoughtText
+        thoughtText:{
+            type: String,
+            required: true,
+            minLength: 1,
+            maxLength: 280,
+        },
+        // createdAt:
+
+        // username
+        username:{
+            type: String,
+            required: true,
+        },
+        reactions: [ReactionSchema],
+        // reactions | Array of nested documents created with the reactionSchema
+
+
+
+
+
+    // Create a virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
+})
+
+
 
 module.exports = Thought;
