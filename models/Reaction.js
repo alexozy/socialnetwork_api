@@ -11,7 +11,17 @@ const ReactionSchema = new Schema({
         default: () =>new Types.ObjectId(),
     },
     // reactionBody:
+    reactionBody:{
+        type: String,
+        required: true,
+        // you can utilitze maxlength or validate here for the 280 character
+        maxLength: 280,
+    },
     // username
+    username:{
+        type: String,
+        required: true,
+    }
     // createdAt
     
 })
