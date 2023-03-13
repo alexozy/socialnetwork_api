@@ -21,24 +21,24 @@ const thoughtController = {
             });
 
     },
-},
+}
 
 // POST
-createThought({ body, params}, res) {
-    Thought.create(body)
-    .then(({_id}) => {
-        return User.findOneAndUpdate(
-            // id
-            {_id: params.userID},
-            // push it
-            {$push: {thoughts: _id} 
-        },
-            //  new thought returned
-            {new: true}
-        );
-    })
-    .then((dbData) => res.json(dbData))
-    .catch((err)=> rest.status(400).json(err));
-}
+// createThought({ body, params}, res) {
+//     Thought.create(body)
+//     .then(({_id}) => {
+//         return User.findOneAndUpdate(
+//             // id
+//             {_id: params.userId},
+//             // push it
+//             {$push: {thoughts: _id} 
+//         },
+//             //  new thought returned
+//             {new: true}
+//         );
+//     })
+//     .then((dbData) => res.json(dbData))
+//     .catch((err)=> rest.status(400).json(err));
+// }
 // PUT 
 
