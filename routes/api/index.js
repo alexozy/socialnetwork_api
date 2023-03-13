@@ -3,8 +3,8 @@
 const router = require("express").Router();
 const userRoutes = require('./user_routes');
 const thoughtRoutes = require('./thought_routes)');
-// https route part
-router.use('/user', userRoutes);
+// https route part | we'd 
+router.use('/users', userRoutes);
 router.use('/thoughts', thoughtRoutes);
 
 modules.exports = router;
