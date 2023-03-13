@@ -2,7 +2,7 @@ const { Thought, User} = require("../models");
 
 const thoughtController = {
 
-    // ALL thoughts
+    // GET ALL thoughts
     getAllThoughts(req,res) {
         Thought.find({})
         .then((dbData) => res.json (dbData))
@@ -11,7 +11,7 @@ const thoughtController = {
             res.status(400).json(err);
         })
     },
-    // One thought
+    // GET One thought
     getThoughtID({ params }, res) {
         Thought.findOne({ _id: params.thoughtID })
             .then((dbData) => {
@@ -22,7 +22,9 @@ const thoughtController = {
 
     },
 },
-createThought({ body, params}, res){
+
+// POST
+createThought({ body, params}, res) {
     Thought.create(body)
     .then(({_id}) => {
         return User.findOneAndUpdate(
@@ -35,7 +37,8 @@ createThought({ body, params}, res){
             {new: true}
         );
     })
-    .then(dbData) => res.json(dbData)
-    .catch((err)+> rest.status(400).json(err))
+    .then((dbData) => res.json(dbData))
+    .catch((err)=> rest.status(400).json(err));
 }
+// PUT 
 
