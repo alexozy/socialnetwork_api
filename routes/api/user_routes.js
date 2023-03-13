@@ -11,9 +11,9 @@
 // .delete();
 // module.exports = router;
 
-const router = require("express". Router);
+const router = require("express").Router();
 // IMPORT
-const { getAllUsers, 
+const { getAllUser, 
     getUserById, 
     createUser, 
     updateUser, 
@@ -30,11 +30,14 @@ router
 
 // api/users/:id
 router
-.route("/:id").get(getUserById).put(updateUser).delete(deleteUser);
+.route("/:id")
+.get(getUserById)
+.put(updateUser)
+.delete(deleteUser)
 
 // api/users/:userId/friend/friendId
 router
-.route("/:userId/friends/:friendId").post(addFriend).delete(removeFriend);
+.route("/:userId/friends/:friendId").post(addFriend).delete(removeFriend)
 
 module.exports = router;
 

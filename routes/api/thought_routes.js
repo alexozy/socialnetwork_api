@@ -10,7 +10,7 @@
 // .delete();
 // module.exports = router;
 
-const router = require("express". Router);
+const router = require("express").Router();
 // IMPORT
 const { getAllThought, 
     getThoughtById, 
@@ -25,11 +25,11 @@ const { getAllThought,
 router
 .route('/')
 .get(getAllThought)
-.post(createThought)
+
 
 // api/thoughts/:id
 router
-.route("/:id")
+.route("/:userId")
 .get(getThoughtById)
 .put(updateThought)
 .delete(deleteThought);
