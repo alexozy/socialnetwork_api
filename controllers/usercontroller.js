@@ -1,4 +1,4 @@
-const { Thought, User} = require("../models");
+const { User, Thought} = require("../models");
 
 const thoughtController = {
 
@@ -15,9 +15,15 @@ const thoughtController = {
     getThoughtID({ params }, res) {
         Thought.findOne({ _id: params.thoughtID })
             .then((dbData) => {
-                // if statement for dbData
-                if (!dbData) { res.status(404).json }
+                // if statement for dbData when no thought ID is found
+                if (!dbData) { 
+                    res.status(404).json ({ message: "No thought assigned to this ID"});
+                    return;
+                }
                 res.json(dbData);
+            })
+            .catch((err) => {
+                console.log(err);
             });
 
     },
