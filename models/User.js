@@ -1,6 +1,5 @@
 // need username; email; thought array; friend array
 const {Schema, model, Types} = require('mongoose');
-
 const UserSchema = new Schema ({
 
     // username

@@ -1,8 +1,10 @@
 const { Schema, model, Types} = require('mongoose');
-const reactionSchema = require('./Reaction');
+// we need access to the date file require it below
+const dateFormat = require("../utils/dateFormat");
 
 // REACTION GOES HERE 
-const ReactionSchema = new Schema({
+const ReactionSchema = new Schema(
+{
    
     // objectID data type for Mongoose
     reactionId: {
@@ -21,10 +23,22 @@ const ReactionSchema = new Schema({
     username:{
         type: String,
         required: true,
-    }
+    },
     // createdAt
-    
-})
+    // this is wehere we'll use the dateFormat
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
+    },
+},
+{
+  toJSON: {
+    // virtuals?
+    getters: true,
+  },
+},
+);
 
 const ThoughtSchema = new Schema (
     {
@@ -36,22 +50,34 @@ const ThoughtSchema = new Schema (
             maxLength: 280,
         },
         // createdAt:
-
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            // getter method formats timestamp on query
+            get: (timestamp) => dateFormat(timestamp),
+          },
         // username
         username:{
             type: String,
             required: true,
         },
         reactions: [ReactionSchema],
-        // reactions | Array of nested documents created with the reactionSchema
-
-
-
-
+      },
+      {
+        toJSON: {
+            virtuals: true,
+            getters: true,
+        },
+        id: false,
+      }
+);
 
     // Create a virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
-})
+    ThoughtSchema.virtual("reactionCount").get(function () {
+        return this.reactions.length;
+});
 
-
+// Thought Model
+const Thought = model("Thought", ThoughtSchema);
 
 module.exports = Thought;
