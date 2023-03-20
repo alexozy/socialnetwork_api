@@ -1,4 +1,4 @@
-const { User} = require("../models");
+const { User} = require("../models/User");
 
 // getAllUser, 
 // getUserById, 
@@ -40,7 +40,7 @@ getUserById({ params}, res){
 createUser({body}, res){
     User.create(body)
     .then((dbData)=> res.json(dbData))
-    .catch((err) => res.status(400).json(err));
+    .catch((err) => res.status(500).json(err));
 },
 
 // PUT updateUser, | needs to be by ID
