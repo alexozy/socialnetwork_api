@@ -20,6 +20,7 @@ const UserSchema = new Schema ({
     // tie to ref:"Thoughts" 
     // we'll use schema.types here
     thoughts: [{type: Schema.Types.ObjectId, ref: "Thought"}],
+    
     // tie to ref:"User"; this will display our users friends
     // we'll use schema.types here
     friends:[ { type: Schema.Types.ObjectId, ref: "User",}]

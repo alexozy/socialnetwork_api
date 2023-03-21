@@ -23,7 +23,7 @@ This is not a live application -- no live link will be provided. Users are encou
 
 ## Application Recording
 
-[Screenrecording]()
+[Screenrecording](https://watch.screencastify.com/v/1AYzzAkjRL0oamEuIxio)
 
 
 ## Questions
