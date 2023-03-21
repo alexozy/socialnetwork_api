@@ -15,7 +15,7 @@ For this challenge we were tasked with creating a social network API that would 
 
 
 ## Technologies Used
-MongoDB| express.js | Mongoose | JavaScript| Insomnia/ Core| 
+MongoDB| express.js | Mongoose | JavaScript| Insomnia| 
 
 ## Usage
 This is not a live application -- no live link will be provided. Users are encouraged to download the packages in "Technologies Used" and run clone the code locally. Please `npm install` (installs dependencies needed for the application) then `npm start` to start the server
@@ -27,7 +27,7 @@ This is not a live application -- no live link will be provided. Users are encou
 
 
 ## Questions
-Follow my Github https://alexozy.github.io/team-profile-generator.
+Follow my Github https://github.com/alexozy?tab=repositories.
 
 If you want to contact me you can reach me at alexanoz@outlook.com .
 
